@@ -152,468 +152,66 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-安装java jdk配置环境出现的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装java-jdk配置环境出现的问题"><a href="#安装java-jdk配置环境出现的问题" class="headerlink" title="安装java jdk配置环境出现的问题"></a>安装java jdk配置环境出现的问题</h1><p><a href="https://www.cnblogs.com/renqiqiang/p/6822143.html" target="_blank" rel="noopener">https://www.cnblogs.com/renqiqiang/p/6822143.html</a><br>主要参考了上述文档,但是要注意自己添加环境变量的时候结尾不要加”;”<br>因为我们添加的时候总会在编辑里添加<br><img src="https://img-blog.csdnimg.cn/2019071008061582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>—bin后面不要加”;”</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/安装java jdk配置环境出现的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+      <header class="article-header">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-配置ubuntu服务器ss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.购买并配置服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh root@ip</span><br><span class="line"></span><br><span class="line">apt-get update &amp;&amp; apt-get upgrade -y</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br></pre></td></tr></table></figure>
-
-<p>运行完最后的命令行后，会看到一个选项：Which Shadowsocks server you’d select，因为我们要安装ShadowsocksR，就选择ShadowsocksR对应的数字。</p>
-<p>然后会看到“Please enter password for ShadowsocksR”，这时需要设定一个以后翻墙时连接Shadowsocks的密码，请自行设定。</p>
-<p>下一个选项”Please enter a port for ShadowsocksR [1-65535]”是让选择一个Shadowsocks的服务器端口，建议使用：443。</p>
-<p>接下来的选项“Please select stream cipher for ShadowsocksR”，是让选择加密方式，建议选择：chacha20-ietf。</p>
-<p>下一个选项“Please select protocol for ShadowsocksR”，是让选择协议，建议选择：origin。</p>
-<p>下一个选项“Please select obfs for ShadowsocksR”，是让选择混淆模式，建议选择：http_simple_compatible。</p>
-<p>然后出现的指示“Press any key to start…or Press Ctrl+C to cancel”，意思是按任何键开始安装或按“Ctrl+C”取消安装。这时按回车键，就可以开始安装了。安装过程可能需要一段时间，请耐心等待。</p>
-<p>安装完成后，屏幕会显示连接Shadowsocks服务器的所有重要参数，包括：Server IP（服务器IP）、Server Port（服务器端口）、Password、Protocol（协议）、obfs（混淆）、Encryption Method（加密）。一定要把所有参数记下来！</p>
-<p>接下来优化配置加速</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br><span class="line"></span><br><span class="line">sudo vi /etc/security/limits.conf</span><br><span class="line"></span><br><span class="line">//在文件末尾增加以下两行（注意：*符号也要包括）：</span><br><span class="line">* soft nofile 51200</span><br><span class="line">* hard nofile 51200</span><br><span class="line"></span><br><span class="line">ulimit -n 51200</span><br><span class="line"></span><br><span class="line">sudo vi /etc/sysctl.conf</span><br><span class="line">//添加</span><br><span class="line">fs.file-max = 51200</span><br><span class="line"></span><br><span class="line">net.core.rmem_max = 67108864</span><br><span class="line">net.core.wmem_max = 67108864</span><br><span class="line">net.core.netdev_max_backlog = 250000</span><br><span class="line">net.core.somaxconn = 4096</span><br><span class="line"></span><br><span class="line">net.ipv4.tcp_syncookies = 1</span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_tw_recycle = 0</span><br><span class="line">net.ipv4.tcp_fin_timeout = 30</span><br><span class="line">net.ipv4.tcp_keepalive_time = 1200</span><br><span class="line">net.ipv4.ip_local_port_range = 10000 65000</span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 8192</span><br><span class="line">net.ipv4.tcp_max_tw_buckets = 5000</span><br><span class="line">net.ipv4.tcp_fastopen = 3</span><br><span class="line">net.ipv4.tcp_mem = 25600 51200 102400</span><br><span class="line">net.ipv4.tcp_rmem = 4096 87380 67108864</span><br><span class="line">net.ipv4.tcp_wmem = 4096 65536 67108864</span><br><span class="line">net.ipv4.tcp_mtu_probing = 1</span><br><span class="line">//退出后</span><br><span class="line">sysctl -p</span><br><span class="line">/etc/init.d/shadowsocks-r restart</span><br></pre></td></tr></table></figure>
-
-<p>下载：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-windows/releases</a><br>参考：<a href="https://www.vpndada.com/shadowsocks-tutorial-cn/" target="_blank" rel="noopener">https://www.vpndada.com/shadowsocks-tutorial-cn/</a></p>
-<p>目前为止服务器配好了，接下来配置Ubuntu本地文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install shadowsocks</span><br><span class="line"></span><br><span class="line">cd /etc/shadowsocks</span><br><span class="line">vi server.json</span><br><span class="line">//更改里面 的ip、密码等参数（上述配置好的参数）</span><br><span class="line">//先尝试是否可以运行</span><br><span class="line">sslocal -c /etc/shadowsocks/server.json</span><br></pre></td></tr></table></figure>
-
-<p>OK!现在可以运行了，接着配置代理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//安装proxychains</span><br><span class="line">sudo apt install proxychains</span><br><span class="line">mkdir ~/.proxychains/ &amp;&amp; touch proxychains.conf</span><br><span class="line">vim ~/.proxychains/proxychains.conf</span><br><span class="line"></span><br><span class="line">//append</span><br><span class="line">strict_chain</span><br><span class="line">proxy_dns</span><br><span class="line">remote_dns_subnet 224</span><br><span class="line">tcp_read_time_out 15000</span><br><span class="line">tcp_connect_time_out 8000</span><br><span class="line">localnet 127.0.0.0/255.0.0.0</span><br><span class="line">quiet_mode</span><br><span class="line"></span><br><span class="line">[ProxyList]</span><br><span class="line">socks5  127.0.0.1 1080</span><br><span class="line"></span><br><span class="line">//前提是安装好了chrome，当然也可以改成firefox</span><br><span class="line">proxychains google-chrome</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://github.com/shellhub/blog/issues/10" target="_blank" rel="noopener">https://github.com/shellhub/blog/issues/10</a></p>
-<p>也可以自行使用googlechrome浏览器代理，就不用每次都proxychains google-chrome<br>安装插件proxy switchyomega：<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif</a></p>
-<p>配置插件<br><a href="https://portal.shadowsocks.se/index.php?rp=/knowledgebase/50" target="_blank" rel="noopener">https://portal.shadowsocks.se/index.php?rp=/knowledgebase/50</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/配置ubuntu服务器ss/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/04/搭建博客/">搭建博客</a>
+    </h1>
   
-    <article id="post-关于git在windows的一些配置和学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+        
+        <a href="/2019/08/04/搭建博客/" class="archive-article-date">
+  	<time datetime="2019-08-03T16:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>首先是安装git,</p>
-</li>
-<li><p>安装完成后,在win搜git bash并以管理员方式启动git bash</p>
-</li>
-<li><p><code>mkdir GitRepository</code>在某个盘创建文件夹作为自己的git库</p>
-</li>
-<li><p><code>git init</code>把GitRepository文件夹初始化为仓库</p>
-</li>
-<li><p><code>git config --golbal user.name &quot;ding&quot;</code>配置自己仓库的用户名</p>
-</li>
-<li><p><code>git config --golbal user.email &quot;xxx@outlook.com&quot;</code>配置自己仓库的邮箱</p>
-</li>
-<li><p><code>vi readme.txt</code>在仓库创建一个文件,并写入一些内容</p>
-</li>
-<li><p><code>git add readme.txt</code>让git能识别到readme.txt.但是会遇到下面问题     <img src="https://img-blog.csdnimg.cn/20190802095731311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>原因是存在符号转义问题<br>windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：<code>git config --global core.autocrlf false</code></p>
-</li>
-<li><p>如果我们目前是Window平台并出现该警告，啥也别做就行，虽然这个警告难看，但这个警告能保证我们项目团队正常跨系统git操作代码,因为git的Windows 客户端基本都会默认设置 core.autocrlf=true（我们可通过git config core.autocrlf命令查询我们的Windows上该属性是否默认true。如不是true,通过config –global core.autocrlf true命令设置该属性为true），而“core.autocrlf=true”</p>
-</li>
-<li><p><a href="https://blog.csdn.net/wq6ylg08/article/details/88761581" target="_blank" rel="noopener">详细解释</a><br><img src="https://img-blog.csdnimg.cn/20190802100818460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p><code>git commit -m &quot;wrote a readme file&quot;</code> -m是对此次commit的说明<br><img src="https://img-blog.csdnimg.cn/2019080210141557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p><code>git status</code>命令告诉完美仓库当前的状况,上面显示了修改了readme.txt文件,但是没有提交</p>
-</li>
-<li><p><code>git diff</code>可以查看文件变更了哪些内容<br><img src="https://img-blog.csdnimg.cn/20190802101927277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>重新添加和交上readme.txt文件<br><img src="https://img-blog.csdnimg.cn/20190802101827863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p><code>git config --global core.autocrlf false</code>可以去除git add出现的警告</p>
-</li>
+        <p><a href="https://blog.csdn.net/weixin_40688217/article/details/90110975" target="_blank" rel="noopener">hexo写博客时怎么插入图片:</a><br>出现无法显示图片的情况:打开_config.yml文件,修改<code>url:https://pickgog.github.io</code>,其中<a href="https://pickgog.github.io是自己的博客地址" target="_blank" rel="noopener">https://pickgog.github.io是自己的博客地址</a></p>
+<h2 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h2><ul>
+<li>以管理员模式运行git bash</li>
+<li>首先安装nodejs和npm,这在上一篇关于npm的问题博客已经安装,包括一些镜像源的问题都以更改</li>
+<li><code>npm install -g hexo-cli</code> 使用此命令安装hexo</li>
+<li><code>hexo -v</code> 查看是否安装好,可能显示无此命令,需要配置其环境变量<br><img src="/2019/08/04/搭建博客/hexo%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt></li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20190803001643757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803001711471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803001737481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803001751505.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://img-blog.csdnimg.cn/20190803130600949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="git管理图"><br><img src="https://img-blog.csdnimg.cn/20190803140328187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h4><ul>
-<li><code>git config --golbal user.name &quot;ding&quot;</code>配置自己仓库的用户名</li>
-<li><code>git config --golbal user.email &quot;xxx@outlook.com&quot;</code>配置自己仓库的邮箱</li>
-<li><code>mkdir GirRepository</code> 创建目录<code>git init</code>初始化目录为当前工作区</li>
-<li><code>touch filename</code>创建filename文件,可以随意添加一些内容,此时filename在工作区</li>
-<li><code>git add filename</code>把文件添加到暂存区(stage区),可以一次性加入很多文件到暂存区</li>
-<li><code>git commit -m &quot;xxx&quot;</code> 把暂存区的所有文件都提交到库中<h4 id="想撤销文件更改或是回退到之前版本"><a href="#想撤销文件更改或是回退到之前版本" class="headerlink" title="想撤销文件更改或是回退到之前版本"></a>想撤销文件更改或是回退到之前版本</h4></li>
-<li><code>git diff</code> 可以查看在工作区修改的还没提交的文件和已经提交(commit)的文件的不同</li>
-<li><code>git checkout -- filename</code> 当你修改了工作区的文件内容,但是想撤销掉更改,就可以把库中之前提交的filename文件拉取的工作区中,覆盖本地的filename</li>
-<li><code>git reset HEAD filename</code> 已经提交到暂存stage区的filename文件回退到 modified状态,再通过<code>git checkout -- filename</code>就能上次commit状态</li>
-<li><code>git reset --hard HEAD^</code> 所谓的版本回退,回退到之前的commit版本</li>
-<li><code>git reset --hard id</code>可以通过<code>git  log</code>或是<code>git reflog</code>查看到的commit的id,跳到某个版本</li>
-<li><code>git log</code> 查看commit过的日志和其id</li>
-<li><code>git reflog</code> 查看输入过命令的日志<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4></li>
-<li><code>git status</code>查看目前的提交状态 </li>
-<li><code>git rm filename</code>删除工作区的filename, <code>git commit -m &quot;xxx&quot;</code>提交删除到本地库<h4 id="关联自己的github库"><a href="#关联自己的github库" class="headerlink" title="关联自己的github库"></a>关联自己的github库</h4></li>
-</ul>
-<ol>
-<li>创建SSH Key<br>在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：<code>ssh-keygen -t rsa -C &quot;xxx@example.com&quot;</code><br>主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</li>
-<li>登陆GitHub，打开“Account settings”，“SSH Keys”页面,填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容 <img src="https://img-blog.csdnimg.cn/20190803135436967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803135552430.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803135622593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>使用本地的git bash远程关联<code>git remote add origin https://github.com/pickgog/GitRepository.git</code></li>
-<li><code>git push -u origin master</code>推上自己的仓库内容</li>
-<li><code>git clone https://...............</code> 也可克隆别人的仓库到本地</li>
-</ol>
-<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><p><img src="https://img-blog.csdnimg.cn/20190803140459200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803140536875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190803140551106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <ul>
-<li><p><code>git checkout -b dev</code>创建dev分支，然后切换到dev分支,</p>
-</li>
-<li><p>相当于以下两条命令:</p>
+<li>成功后,如下图<br><img src="/2019/08/04/搭建博客/%E7%89%88%E6%9C%AC.png" alt></li>
+</ul>
 <ul>
-<li><code>git branch dev</code> </li>
-<li><code>git checkout dev</code></li>
+<li><code>cd /c/Users/pickg/blog</code>创建一个blog目录并进入此目录</li>
+<li><code>hexo init</code> 在此初始化<br><img src="/2019/08/04/搭建博客/%E5%88%9D%E5%A7%8B%E5%8C%96.png" alt="tip"></li>
 </ul>
-</li>
-<li><p><code>git branch</code>查看当前所有分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>git merge dev</code>把dev上的操作合并到master上去</p>
-</li>
-<li><p><code>git branch -d dev</code> 删除dev</p>
-<h4 id="合并时遇到的问题"><a href="#合并时遇到的问题" class="headerlink" title="合并时遇到的问题"></a>合并时遇到的问题</h4></li>
-<li><p><code>git checkout -b feature1</code>准备新的feature1分支</p>
-</li>
-<li><p>修改readme.txt最后一行，改为：<code>Creating a new branch is quick AND simple.</code></p>
-</li>
-<li><p>提交<code>git add readme.txt</code>  , <code>git commit -m &quot;AND simple&quot;</code></p>
-</li>
-<li><p>切换到master分支：<code>git checkout master</code></p>
-</li>
-<li><p>在master分支上把readme.txt文件的最后一行改为：<code>Creating a new branch is quick &amp; simple.</code></p>
-</li>
-<li><p>提交:<code>git add readme.txt</code>, <code>git commit -m &quot;&amp; simple&quot;</code></p>
-</li>
-<li><p>现在，master分支和feature1分支各自都分别有新的提交，变成了这样：<br><img src="https://img-blog.csdnimg.cn/20190803141658174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>此时合并会遇到下面的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git merge feature1</span><br><span class="line">Auto-merging readme.txt</span><br><span class="line">CONFLICT (content): Merge conflict in readme.txt</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>git status</code>也可以告诉我们冲突的文件</p>
-</li>
-<li><p>查看readme文件的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software distributed under the GPL.</span><br><span class="line">Git has a mutable index called stage.</span><br><span class="line">Git tracks changes of files.</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">Creating a new branch is quick &amp; simple.</span><br><span class="line">=======</span><br><span class="line">Creating a new branch is quick AND simple.</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改后在提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt </span><br><span class="line">$ git commit -m &quot;conflict fixed&quot;</span><br><span class="line">[master cf810e4] conflict fixed</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用<code>git log</code>可以查看具体情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git log --graph --pretty=oneline --abbrev-commit</span><br><span class="line">*   cf810e4 (HEAD -&gt; master) conflict fixed</span><br><span class="line">|\  </span><br><span class="line">| * 14096d0 (feature1) AND simple</span><br><span class="line">* | 5dc6824 &amp; simple</span><br><span class="line">|/</span><br></pre></td></tr></table></figure>
-
-</li>
+<p><img src="/2019/08/04/搭建博客/%E5%90%AF%E5%8A%A8%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5.png" alt></p>
+<p><img src="/2019/08/04/搭建博客/%E6%96%B0%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0.png" alt></p>
+<p><img src="/2019/08/04/搭建博客/hexo%E7%94%9F%E6%88%90.png" alt></p>
+<p><img src="/2019/08/04/搭建博客/%E9%87%8D%E5%90%AF.png" alt></p>
+<h2 id="部署到GitHub上"><a href="#部署到GitHub上" class="headerlink" title="部署到GitHub上"></a>部署到GitHub上</h2><ul>
+<li>登录GitHub并且新建一个仓库<br><img src="/2019/08/04/搭建博客/%E5%88%9B%E5%BB%BA%E5%BA%93.png" alt></li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344" target="_blank" rel="noopener">git教程</a></p>
-<p><a href="https://www.atlassian.com/git/tutorials/using-branches" target="_blank" rel="noopener">可以在线学习的git tutorial</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/关于git在windows的一些配置和学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-windows下用git连接服务器自动断开情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>按win 搜索git bash,以管理员模式打开,一般就是在用户目录文件下<br><img src="https://img-blog.csdnimg.cn/20190731151430779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入git界面是这样</li>
-<li><img src="https://img-blog.csdnimg.cn/20190731151549450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>找到这个参数<br><img src="https://img-blog.csdnimg.cn/20190731151642882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 客户端每隔多少秒向服务发送一个心跳数据</span><br><span class="line">ClientAliveInterval 60</span><br><span class="line"># 客户端多少秒没有相应，服务器自动断掉连接</span><br><span class="line">ClientAliveCountMax 1800</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/windows下用git连接服务器自动断开情况/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-安装node-npm的过程及遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装node-npm的过程"><a href="#安装node-npm的过程" class="headerlink" title="安装node-npm的过程"></a>安装node-npm的过程</h2><p>下面是想起的安装及示例测试过程<br><a href="https://www.cnblogs.com/lgx5/p/10732016.html" target="_blank" rel="noopener">安装node-npm详细过程</a></p>
-<p>遇到这个问题需要<code>npm init -y</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install dependencies</span><br><span class="line">npm WARN saveError ENOENT: no such file or directory, open &apos;C:\Windows\system32\package.json&apos;</span><br><span class="line">npm WARN enoent ENOENT: no such file or directory, open &apos;C:\Windows\system32\package.json&apos;</span><br></pre></td></tr></table></figure>
-
-<p>遇到这个 需要<code>npm install dependencies</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to install dependencies. Please run &apos;npm install&apos; manually!</span><br></pre></td></tr></table></figure>
-
-<p>首先一定要改镜像,因为墙的问题,很多东西安装不成功,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br><span class="line"></span><br><span class="line">再用</span><br><span class="line">npm config get registry 查看本地镜像源</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">关于node-sass安装更改各种镜像,linux和windows和各种方法</a></p>
-<p>但是在导入别人的项目时候,npm install,就会出现各种问题,首先遇到的可能是chromedriver 安装不动<br>通过改镜像安装可以解决<br><code>npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver</code><br>然后可能遇到note-sass安装不成功的问题,也通过改镜像<br><code>npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</code><br>也可以解决,之后就可以npm run dev了,但是由于之前遇到的各种问题,npm install过很多次,所以每次都需要在项目文件夹中删除node-modules文件夹,再重新npm install</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/安装node-npm的过程及遇到的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于如何完美在idea中导入别人的maven项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>想学习一门技术最先肯定要看别人的项目文件,但是对于刚接触一个技术而言,怎么导入别人项目是很麻烦的事,下面就介绍如何导入别人的maven项目到idea中</p>
+<p><img src="/2019/08/04/搭建博客/%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85.png" alt></p>
 <ul>
-<li>一般别人的项目文件可能是打包好的,但是也有就src和pom.xml文件<br><img src="https://img-blog.csdnimg.cn/20190723110346565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>实际上除了sql文件,完美只是需要src和pom.xml文件就能导入到idea中,jar包之类的都会自动下载到自己本地的maven库中<br><img src="https://img-blog.csdnimg.cn/20190723110525287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>打开idea,一般可以在这个界面直接导入<br><img src="https://img-blog.csdnimg.cn/2019072311061276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723110654275.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723110744288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>maven项目需要设置环境配置为自己的maven的settings文件和仓库(关于maven的安装和配置自行百度)<br>下面是因为我在项目中设置好了默认的库,所有不用设置就可以直接ok</li>
+<li><p>设置当前目录下的_config.yml文件<br><img src="/2019/08/04/搭建博客/%E9%85%8D%E7%BD%AE.png" alt></p>
+</li>
+<li><p><code>hexo d</code> 推到github上<br><img src="/2019/08/04/搭建博客/hexo-d.png" alt></p>
+</li>
+<li><p><code>pickgog.github.io</code>推上去就可以浏览器在输入这个就能进入博客</p>
+</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20190723110846933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>中间几步都点next,最后<br><img src="https://img-blog.csdnimg.cn/20190723111118148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>接着他就会自行下载所需要的文件<br><img src="https://img-blog.csdnimg.cn/20190723111207177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723111247594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201907231113468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723111426774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723111442576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="自定义一个主题"><a href="#自定义一个主题" class="headerlink" title="自定义一个主题"></a>自定义一个主题</h3><p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a></p>
 <ul>
-<li><p>接着就可以执行了,关于默认的maven设置,defaultsettings<br><img src="https://img-blog.csdnimg.cn/20190723111541623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019072311162260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>默认的sdk<br><img src="https://img-blog.csdnimg.cn/20190723111704640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>默认自动下载source和documentation,这个可设置可不设置,加入导入别人项目出现各种问题,最好从新导入的时候加上这个<br><img src="https://img-blog.csdnimg.cn/20190723125901123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>如何在当前项目打开别的maven项目<br><img src="https://img-blog.csdnimg.cn/20190723111753287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190723111902455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>后续步骤查看参考上文</p>
-</li>
+<li><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code> 克隆下来<br><img src="/2019/08/04/搭建博客/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE.png" alt></li>
 </ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/关于如何完美在idea中导入别人的maven项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于报错Unable to read XML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.hibernate.InvalidMappingException: Unable to read XML</span><br><span class="line">	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)</span><br><span class="line">	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)</span><br><span class="line">	at org.hibernate.cfg.Configuration.add(Configuration.java:518)</span><br><span class="line">	at org.hibernate.cfg.Configuration.add(Configuration.java:514)</span><br><span class="line">	at org.hibernate.cfg.Configuration.add(Configuration.java:688)</span><br><span class="line">	at org.hibernate.cfg.Configuration.addResource(Configuration.java:771)</span><br><span class="line">	at org.hibernate.cfg.Configuration.parseMappingElement(Configuration.java:2257)</span><br><span class="line">	at org.hibernate.cfg.Configuration.parseSessionFactory(Configuration.java:2229)</span><br><span class="line">	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:2209)</span><br><span class="line">	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:2162)</span><br><span class="line">	at org.hibernate.cfg.Configuration.configure(Configuration.java:2077)</span><br><span class="line">	at com.fireangle.test.dao.SysUserDao.&lt;clinit&gt;(SysUserDao.java:20)</span><br><span class="line">Caused by: org.dom4j.DocumentException: 3 字节的 UTF-8 序列的字节 3 无效。 Nested exception: 3 字节的 UTF-8 序列的字节 3 无效。</span><br><span class="line">	at org.dom4j.io.SAXReader.read(SAXReader.java:484)</span><br><span class="line">	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)</span><br><span class="line">	... 11 more</span><br><span class="line">Exception in thread &quot;main&quot;</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2019/08/04/搭建博客/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9B%B4%E6%94%B9.png" alt></p>
+<p><img src="/2019/08/04/搭建博客/%E9%87%8D%E5%90%AF%E5%90%AF%E5%8A%A8.png" alt></p>
 <ul>
-<li>把xml文件放到resources文件夹中<br><img src="https://img-blog.csdnimg.cn/20190722212546977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190722212720884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在pom.xml里加入以下包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.dom4j&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;dom4j&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.1.1&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--  这里是为了防止xml无法被打包而手动设置一下。 --&gt;</span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;resources&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/java&lt;/directory&gt;</span><br><span class="line">                &lt;includes&gt;</span><br><span class="line">                    &lt;include&gt;**/*.xml&lt;/include&gt;</span><br><span class="line">                &lt;/includes&gt;</span><br><span class="line">                &lt;filtering&gt;true&lt;/filtering&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/resources&lt;/directory&gt;</span><br><span class="line">                &lt;includes&gt;</span><br><span class="line">                    &lt;include&gt;**/*.xml&lt;/include&gt;</span><br><span class="line">                    &lt;include&gt;**/*.properties&lt;/include&gt;</span><br><span class="line">                &lt;/includes&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line">        &lt;/resources&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>在输入<code>hexo d</code>推到GitHub上<br><img src="/2019/08/04/搭建博客/%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6.png" alt></li>
 </ul>
+<p><img src="/2019/08/04/搭建博客/%E6%88%90%E6%9E%9C%E5%9B%BE.png" alt></p>
 
       
 
@@ -626,7 +224,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/关于报错Unable to read XML/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/04/搭建博客/">展开全文 >></a>
         </p>
       
 
@@ -656,17 +254,39 @@
 
 
   
-    <article id="post-在sts中部署tomcat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/03/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/03/hello-world/" class="archive-article-date">
+  	<time datetime="2019-08-03T15:19:25.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-03</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tomcat8.5的安装<br><img src="https://img-blog.csdnimg.cn/20190720202643237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190720202707913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>1、打开sts。</p>
-<p>2、点击菜单栏的“Window”，然后选择“Preferences”。</p>
-<p>3、点击弹出窗口的“Server”，然后选择“Runtime Environment”，然后点击右边的“Add”按钮。</p>
-<p>4、选择弹出窗口上的“Apache”,然后选择Tomcat版本，然后单击“Next”。</p>
-<p>5、选择Tomcat的安装根目录，点击“Finish”即可。</p>
-<p>6、然后再“Server”处点击Tomcat，选择“Add and Remove…”，然后把需要部署的工程添加就行了。</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -679,7 +299,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/在sts中部署tomcat/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/03/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -709,111 +329,6 @@
 
 
   
-    <article id="post-在maven新建javaweb项目中index.jsp出错" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="在maven新建javaweb项目中index-jsp出错"><a href="#在maven新建javaweb项目中index-jsp出错" class="headerlink" title="在maven新建javaweb项目中index.jsp出错"></a>在maven新建javaweb项目中index.jsp出错</h1><p><img src="https://img-blog.csdnimg.cn/20190720104713875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>根据提示，应该是没有引入servlet-api包的原因，在pom中依赖一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;servlet-api&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;2.5&lt;/version&gt;</span><br><span class="line">	&lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果导一下tomcat的lib也是可以的，就是build path -&gt;add -&gt;server runtime xxxx</p>
-<p>这样还会帮你生成src/main/java和src/main/resources、src/main/test<br><img src="https://img-blog.csdnimg.cn/2019072010581182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>或者configure build path<br><img src="https://img-blog.csdnimg.cn/20190720105908224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/在maven新建javaweb项目中index.jsp出错/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tomcat端口占用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://img-blog.csdnimg.cn/20190720104543795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9kaW5nemkxMjc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/tomcat端口占用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
