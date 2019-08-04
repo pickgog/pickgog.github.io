@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://pickgog.github.io">
-  <title>Archives: 2019/8 | fast</title>
+  <title>fast</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="安装node-npm的过程下面是想起的安装及示例测试过程安装node-npm详细过程 遇到这个问题需要npm init -y 123npm install dependenciesnpm WARN saveError ENOENT: no such file or directory, open &amp;apos;C:\Windows\system32\package.json&amp;apos;npm WAR">
+<meta property="og:type" content="article">
 <meta property="og:title" content="fast">
-<meta property="og:url" content="https://pickgog.github.io/archives/2019/08/index.html">
+<meta property="og:url" content="https://pickgog.github.io/2019/08/04/安装node-npm的过程及遇到的问题/index.html">
 <meta property="og:site_name" content="fast">
+<meta property="og:description" content="安装node-npm的过程下面是想起的安装及示例测试过程安装node-npm详细过程 遇到这个问题需要npm init -y 123npm install dependenciesnpm WARN saveError ENOENT: no such file or directory, open &amp;apos;C:\Windows\system32\package.json&amp;apos;npm WAR">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-04T04:30:13.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fast">
+<meta name="twitter:description" content="安装node-npm的过程下面是想起的安装及示例测试过程安装node-npm详细过程 遇到这个问题需要npm init -y 123npm install dependenciesnpm WARN saveError ENOENT: no such file or directory, open &amp;apos;C:\Windows\system32\package.json&amp;apos;npm WAR">
   
     <link rel="alternative" href="/atom.xml" title="fast" type="application/atom+xml">
   
@@ -150,235 +154,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-安装node-npm的过程及遇到的问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装node-npm的过程"><a href="#安装node-npm的过程" class="headerlink" title="安装node-npm的过程"></a>安装node-npm的过程</h2><p>下面是想起的安装及示例测试过程<br><a href="https://www.cnblogs.com/lgx5/p/10732016.html" target="_blank" rel="noopener">安装node-npm详细过程</a></p>
+<p>遇到这个问题需要<code>npm init -y</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install dependencies</span><br><span class="line">npm WARN saveError ENOENT: no such file or directory, open &apos;C:\Windows\system32\package.json&apos;</span><br><span class="line">npm WARN enoent ENOENT: no such file or directory, open &apos;C:\Windows\system32\package.json&apos;</span><br></pre></td></tr></table></figure>
+
+<p>遇到这个 需要<code>npm install dependencies</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to install dependencies. Please run &apos;npm install&apos; manually!</span><br></pre></td></tr></table></figure>
+
+<p>首先一定要改镜像,因为墙的问题,很多东西安装不成功,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br><span class="line"></span><br><span class="line">再用</span><br><span class="line">npm config get registry 查看本地镜像源</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">关于node-sass安装更改各种镜像,linux和windows和各种方法</a></p>
+<p>但是在导入别人的项目时候,npm install,就会出现各种问题,首先遇到的可能是chromedriver 安装不动<br>通过改镜像安装可以解决<br><code>npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver</code><br>然后可能遇到note-sass安装不成功的问题,也通过改镜像<br><code>npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</code><br>也可以解决,之后就可以npm run dev了,但是由于之前遇到的各种问题,npm install过很多次,所以每次都需要在项目文件夹中删除node-modules文件夹,再重新npm install</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装java jdk配置环境出现的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.210Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://pickgog.github.io/2019/08/04/安装node-npm的过程及遇到的问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/配置ubuntu服务器ss/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.204Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于git在windows的一些配置和学习/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.200Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2019/08/04/windows下用git连接服务器自动断开情况/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/04/关于如何完美在idea中导入别人的maven项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/windows下用git连接服务器自动断开情况/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.187Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装node-npm的过程及遇到的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.179Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于如何完美在idea中导入别人的maven项目/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于报错Unable to read XML/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.156Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在sts中部署tomcat/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.144Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在maven新建javaweb项目中index.jsp出错/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.129Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/tomcat端口占用/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.126Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/08/page/2/">2</a><a class="page-number" href="/archives/2019/08/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/08/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -402,8 +331,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

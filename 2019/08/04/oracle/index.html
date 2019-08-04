@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://pickgog.github.io">
-  <title>Archives: 2019/8 | fast</title>
+  <title>fast</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Oracle基础语法总结1 基础   SQL功能 命令动词    数据定义 create,drop,alter   数据操纵 select,insert,update,delete   数据控制 grant,revoke,commit,rollback   数据定义语句    操作对象 创建 删除 修改    表 create table drop table alter table   视图 c">
+<meta property="og:type" content="article">
 <meta property="og:title" content="fast">
-<meta property="og:url" content="https://pickgog.github.io/archives/2019/08/index.html">
+<meta property="og:url" content="https://pickgog.github.io/2019/08/04/oracle/index.html">
 <meta property="og:site_name" content="fast">
+<meta property="og:description" content="Oracle基础语法总结1 基础   SQL功能 命令动词    数据定义 create,drop,alter   数据操纵 select,insert,update,delete   数据控制 grant,revoke,commit,rollback   数据定义语句    操作对象 创建 删除 修改    表 create table drop table alter table   视图 c">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-04T04:31:58.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fast">
+<meta name="twitter:description" content="Oracle基础语法总结1 基础   SQL功能 命令动词    数据定义 create,drop,alter   数据操纵 select,insert,update,delete   数据控制 grant,revoke,commit,rollback   数据定义语句    操作对象 创建 删除 修改    表 create table drop table alter table   视图 c">
   
     <link rel="alternative" href="/atom.xml" title="fast" type="application/atom+xml">
   
@@ -150,235 +154,335 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oracle" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Oracle基础语法总结"><a href="#Oracle基础语法总结" class="headerlink" title="Oracle基础语法总结"></a>Oracle基础语法总结</h1><h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1 基础"></a>1 基础</h2><table>
+<thead>
+<tr>
+<th>SQL功能</th>
+<th align="center">命令动词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据定义</td>
+<td align="center">create,drop,alter</td>
+</tr>
+<tr>
+<td>数据操纵</td>
+<td align="center">select,insert,update,delete</td>
+</tr>
+<tr>
+<td>数据控制</td>
+<td align="center">grant,revoke,commit,rollback</td>
+</tr>
+</tbody></table>
+<p>数据定义语句</p>
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th align="left">创建</th>
+<th align="center">删除</th>
+<th align="right">修改</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表</td>
+<td align="left">create table</td>
+<td align="center">drop table</td>
+<td align="right">alter table</td>
+</tr>
+<tr>
+<td>视图</td>
+<td align="left">create view</td>
+<td align="center">drop view</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>索引</td>
+<td align="left">create index</td>
+<td align="center">drop index</td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>SQL中的数据定义主要针对数据库三级模式结构所对应的各种数据对象进行定义的,标准SQL中的数据对象主要是表,视图,索引.当然再oracle中还有触发器,游标,过程,程序包等.<br>视图是基于表的虚表,索引依附在基表上,因此视图和索引不提供修改操作,想修改只能通过删除再创建,但是再Oracle中可以通过alter view对视图进行修改</em></p>
+<hr>
+<h3 id="1-1-建表的语法"><a href="#1-1-建表的语法" class="headerlink" title="1.1 建表的语法"></a>1.1 建表的语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(  </span><br><span class="line">　字段名 字段类型 [约束 默认值],  </span><br><span class="line">　...  </span><br><span class="line">　字段名 字段类型 [约束 默认值],</span><br><span class="line">  [表级完整性约束条件]  </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">注意</span><br><span class="line">- 数据一定是区分大小写的</span><br><span class="line">- 表名、字段名(列名)、关键字大小写不敏感</span><br><span class="line">- 表名、字段名不能使用关键字</span><br><span class="line">- 表名、字段名不能以数字开头，中间不能出现特殊符号</span><br><span class="line">- 表名、字段名长度不能超过30个字符</span><br><span class="line">- 表名、字段名定义需要有含义</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-2-创建表t-user举例"><a href="#1-2-创建表t-user举例" class="headerlink" title="1.2 创建表t_user举例"></a>1.2 创建表t_user举例</h3><ul>
+<li>姓名 name, 字符串</li>
+<li>性别 gender, 字符串</li>
+<li>年龄 age, 数字型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table t_user(</span><br><span class="line">    name varchar2(30),</span><br><span class="line">    gender varchar2(5),</span><br><span class="line">    age number(4)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">注意</span><br><span class="line">- desc命令需要在命令窗口执行</span><br><span class="line">desc t_user</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-3-Oracle中常见的数据类型"><a href="#1-3-Oracle中常见的数据类型" class="headerlink" title="1.3 Oracle中常见的数据类型"></a>1.3 Oracle中常见的数据类型</h3><h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><ul>
+<li><p>varchar2(size type):size最大为4000，type可为char或者byte，默认是byte, varchar2最多存放4000字节的数据，不管type是char还是byte。所以如果你设置varchar2(4000 char)，你可以存入4000个字母，但是不能存入4000个汉字。如果数据库字符集编码是GBK，那么varchar2最多能存放2000个汉字，如果字符集编码是UTF-8，那么则只能最多存放1333个汉字了。</p>
+</li>
+<li><p>nvarchar2(size):size最大值为2000，单位是字符，而且不管是汉字还是字母，每个字符的长度都是2个字节。所以nvarchar2类型的数据最多能存放2000个汉字，也最多只能存放2000个字母。并且nvarchar2不同于varchar2,他不受数据库字符集的影响。n 表示 Unicode 字符，即所有字符都占两个字节，nchar，nvarchar</p>
+</li>
+<li><p>varchar(length):基本等价于varchar2, 没什么太大的区别,varchar2用null代替了varchar的空字符串,且varchar2是Oracle独有的</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>BYTE和CHAR有什么区别?</strong></p>
+</blockquote>
+<ul>
+<li>BYTE,用字节指定：VARCHAR2(10 BYTE)。这能支持最多10字节的数据，在一个多字节字符集中，这可能只是两个字符。采用多字节字符集时，字节与字符并不相同。</li>
+<li>CHAR,用字符指定：VARCHAR2(10 CHAR)。这将支持最多10字符数据，可能是多达40字节的信息。另外，VARCHAR2(4000 CHAR)理论上支持最多4000个字符的数据，不过由于Oracle中字符串数据类型限制为4000字节，所以可能无法得到全部4000个字符。</li>
+</ul>
+<p><strong>总结:英文字符最好使用varchar2,中文字符最好使用nvarchar2,使用varchar2时最好默认,如varchar2(10),表示可以存储10个字节的数据,10个英文字符,5个中文字符.而nvarchar2(10),表示可以存储20个字节的数据,或者说是10个字符的数据,也就是无论中英文都是存十个字符.</strong></p>
+<h4 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h4><ul>
+<li>number(p,s):p代表数字的长度(不包括小数点),s表示小数点后面的尾数长度.</li>
+<li>举例: number(5, 2), 表示小数点前面有三个数字,后面两个数字, 像 122.22/12.11都是合法的, 而1234.10/1.241都是不合法的</li>
+</ul>
+<h4 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h4><ul>
+<li>date:七个字节, 英文DD-MOR-RR “11-JUN-15”中文11-6月-15</li>
+</ul>
+<h3 id="1-4-删除表-drop-table-表名"><a href="#1-4-删除表-drop-table-表名" class="headerlink" title="1.4 删除表 drop table 表名"></a>1.4 删除表 drop table 表名</h3><h3 id="1-5-创建员工表"><a href="#1-5-创建员工表" class="headerlink" title="1.5 创建员工表"></a>1.5 创建员工表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create table staff(</span><br><span class="line">    id number(11),</span><br><span class="line">    name nvarchar2(15) not null,</span><br><span class="line">    salary number(10, 2),</span><br><span class="line">    birth date,</span><br><span class="line">    job varchar2(30),</span><br><span class="line">    gender char(3) default &apos;m&apos;</span><br><span class="line">)</span><br><span class="line">/*设置了</span><br><span class="line">姓名不为空</span><br><span class="line">性别默认为m*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-约束条件"><a href="#2-约束条件" class="headerlink" title="2 约束条件"></a>2 约束条件</h2><h3 id="主键约束-primary-key"><a href="#主键约束-primary-key" class="headerlink" title="主键约束:primary key"></a>主键约束:primary key</h3><p>主键约束注意事项</p>
+<blockquote>
+<ul>
+<li>一张表中只能有一个主键约束</li>
+<li>主键约束不能为空且具有唯一性</li>
+<li>关系型数据库中使用主键约束唯一标识一行数据</li>
+<li>主键约束分为两类:行级约束, 表级约束</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 建表时定义的主键约束 --&gt;</span><br><span class="line">create table 表名(</span><br><span class="line">    字段名 类型 primary key, /*列级约束只能作用一个字段*/</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">&lt;!-- 建表时定义表级约束 --&gt;</span><br><span class="line">create table 表名(</span><br><span class="line">    字段1 类型,</span><br><span class="line">    字段2 类型,</span><br><span class="line">    ...</span><br><span class="line">    constraint 表名_字段名_PK primary key(字段1, 字段2)/* 字段1和字段2联合主键*/</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查询"><a href="#3-查询" class="headerlink" title="3 查询"></a>3 查询</h2><p>//查询employees表中的所有数据<br><code>select * from employees;</code></p>
+<p>//查询方案hr的countries表中的所有的行数据,该方案再安装Oracle时就已经自动创建了,可以直接使用.<br><code>select * from hr.countries;</code>  </p>
+<p>//同上<br><code>select region_id,country_name from hr.countries;</code></p>
+<p>//对表中的所有人员的薪金增加10%<br><code>select employee_id, first_name, last_name, salary*(1+0.1) from hr.employees;</code>  </p>
+<p>//指定了新工资的列名<br><code>select employee_id, first_name, last_name, salary*(1+0.1) new_salary from hr.employees;</code></p>
+<h3 id="3-1-distinct关键字"><a href="#3-1-distinct关键字" class="headerlink" title="3.1 distinct关键字"></a>3.1 distinct关键字</h3><p>//加入distinct关键字可以筛选重复数据,比如像看部门的id, 不加distinct由于多人属于同一部门就会出现很多重复的部门id号.<br><code>select distinct department_id from hr.employees;</code></p>
+<h3 id="3-2-where子句"><a href="#3-2-where子句" class="headerlink" title="3.2 where子句"></a>3.2 where子句</h3><ul>
+<li>判断语句中A!=B或A&lt;&gt;B表示若A的值不等于B</li>
+<li>A LIKE B表示A的值匹配到B的值,则为真, 在Oracle的通配符%代表 0个,1个或多个任意字符,”_”代表一个任意字符.</li>
+<li>NOT运算符用于对判断条件取反是否符合</li>
+</ul>
+<p>//查询first_name列中以B开头的雇员<br><code>select employee_id,first_name, last_name from hr.employees where first_name like &#39;B%&#39;;</code></p>
+<h3 id="3-3-连接运算符and-or"><a href="#3-3-连接运算符and-or" class="headerlink" title="3.3 连接运算符and/or"></a>3.3 连接运算符and/or</h3><p>//查询出所有属于it部门(department_id=60),且薪金大于2000的雇员.注意等于号!!!<br><code>select employee_id, first_name, last_name,salary from hr.employees where departmen_id=60 and salary&gt;2000;</code></p>
+<h3 id="3-4-关于NULL"><a href="#3-4-关于NULL" class="headerlink" title="3.4 关于NULL"></a>3.4 关于NULL</h3><p><code>insert into hr.departments(department_id,department_name, manager_id) values(300, &#39;数据库&#39;, NULL);</code><br>//查不到数据,=判断方式错误<br><code>select department_id,department_name,manager_id from hr.departments where manager_id = NULL;</code><br>//这才是正确操作<br><code>select department_id,department_name,manager_id from hr.departments where manager_id is NULL;</code></p>
+<h3 id="3-5-order-by"><a href="#3-5-order-by" class="headerlink" title="3.5 order by"></a>3.5 order by</h3><p>//对查询到的结果进行排序输出,ASC按照升序,DESC按照降序<br><code>select column_list from table_name order by[{order_by_expression[ASC|DESC]}...]</code>  </p>
+<p>// 查询工资升序排列,从上往下升.当然不加asc也行,因为默认是就是asc<br><code>select employee_id, first_name,last_name, salary from hr.employees where salary&gt;2000 order by salary asc;</code>  </p>
+<p>//如果order by制定了多个列名,首先根据第一列进行排序,当第一列的值相同时,在对第二列进行比较排序,<br><code>select last_name, job_id, salary from hr.employees where salary&gt;2000 order by job_id,salary desc;</code>  </p>
+<h3 id="3-6-group-by"><a href="#3-6-group-by" class="headerlink" title="3.6 group by"></a>3.6 group by</h3><p>用于在查询结果中对记录进行分组,以汇总数据或者为整个分组显示单行的汇总信息.  </p>
+<p>//这种就是先把employees表按照job_id进行分组,之后根据每个组计算相应的平均工资, 工资总和,最大工资和每个组的记录数<br><code>select job_id, avg(salary), sum(salary), max(salary), count(job_id) from employees group by job_id;</code>  </p>
+<p>//错误示例, select后出现了salary,但是却没出现在group by子句后,所以该句是错误的<br><code>select job_id,salary, avg(salary), sum(salary), max(salary), count(job_id) from employees group by job_id;</code>  </p>
+<p>//在group by中还可以使用运算符rollup/cube,功能是在查询结果中附加一行汇总信息<br><code>select job_id, avg(salary), sum(salary). max(salary), count(*) from employees group by rollup(job_id);</code></p>
+<p>注意使用groupby子句必须满足下列条件:</p>
+<blockquote>
+<ul>
+<li>在select子句后面只可以有两类表达式:统计函数和进行分组的列名.</li>
+<li>在select子句中的列名必须是进行分组的列,但是group by子句后面的列名可以不出现在select子句中</li>
+<li>默认情况下,是按照升序排列,想要从新排序,可以使用order by子句进行新的排序.</li>
+</ul>
+</blockquote>
+<h3 id="3-7-having-子句"><a href="#3-7-having-子句" class="headerlink" title="3.7 having 子句"></a>3.7 having 子句</h3><ul>
+<li>having通常与group by子句一起使用,在完成对分组结果的统计后,可以使用having对分组的结果做进一步的筛选.如果不适用group by时,having的功能和where子句一样.不同之处就在于having与组相关,而where是与单个的行相关.</li>
+<li>如果没有使用group by 而是在where子句后面直接使用了having,那就将having子句应用到where子句的输出上,将整个输出看作一个组.</li>
+<li>如果没有指定where子句,也没指定group by,那么having子句将应用于from子句的输出,并将其看作是一个组.<br>//列出平均薪资大于100000的工作信息<br><code>select job_id, avg(salary), sum(salary), max(salary), count(*) from employees group by job_id having avg(salary)&gt;10000;</code></li>
+</ul>
+<h3 id="3-8-多表连接查询"><a href="#3-8-多表连接查询" class="headerlink" title="3.8  多表连接查询"></a>3.8  多表连接查询</h3><ul>
+<li><p>为了避免笛卡尔乘积造成的资源浪费,需要加上where限定条件<br><code>select employee_id, last_name, department_name from employees,departments where employees.department_id=departments.department_id order by EMPLOYEE_ID asc;</code></p>
+</li>
+<li><p>表别名注意的问题<br><code>select em.employee_id, em.last_name, dep.department_name from employees em, departments dep where em.department_id=dep.department_id and dep.department_name=&#39;Shipping&#39;;</code><br>以上简便了输入<br><code>select employees.employee_id, employees.last_name, dep.department_name from employees em, departments dep where em.department_id=dep.department_id and dep.department_name=&#39;Shipping&#39;;</code><br>现在就会报错,这和select语句先后执行的顺序有关,先执行from,  employees就已经被代替成em了,最后再执行select时就会出错</p>
+</li>
+<li><p>join连接<br>除了逗号之外还可以使用join<br><code>from join_table1 join_type join_table2</code><br>连接包括内连接,自然连接,外连接,自连接.最常用的是内连接也就是inner join,也可省略join就可表示内连接. on是连接的条件<br>//使用内连接查询雇员信息和雇员所在的部门名称<br><code>select em.employee_id, em.last_name, dep.department_name from employees em inner join departments dep on em.department_id=dep.department_id where em.job_id=&#39;AD_ASST&#39;;</code></p>
+</li>
+</ul>
+<h3 id="完整的顺序"><a href="#完整的顺序" class="headerlink" title="完整的顺序"></a>完整的顺序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select [all|distinct] from table_name where** group by** having** order by**</span><br></pre></td></tr></table></figure>
+
+<p>常用的统计函数<br>函数|描述<br>—|—|<br>count|返回找到的记录数<br>min|返回一个数字列或者计算列的最小值<br>max|返回一个数字列或者计算列的最大值<br>sum|返回一个数字列或者计算列的总和<br>avg|返回一个数字列或者计算列的平均值</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-在navicat中快速选中一行"><a href="#1-在navicat中快速选中一行" class="headerlink" title="1. 在navicat中快速选中一行"></a>1. 在navicat中快速选中一行</h3><p>当前行行首：Home </p>
+<p>当前行行尾：End</p>
+<p>当前文档首行：ctrl+Home  </p>
+<p>当前文档尾行：ctrl+End</p>
+<p>选中当前行：</p>
+<ul>
+<li><p>按Home（定位到行首）然后按Shift+Dnd（行尾）   {从行首连选到行尾}</p>
+</li>
+<li><p>按Home（定位到行首）然后按Shift+↓（向下箭头）</p>
+</li>
+<li><p>选中上一行或多行：按Home（定位到行首）然后按Shift+↑</p>
+</li>
+</ul>
+<h3 id="2-执行选中的快捷命令"><a href="#2-执行选中的快捷命令" class="headerlink" title="2. 执行选中的快捷命令"></a>2. 执行选中的快捷命令</h3><ul>
+<li>crtl R</li>
+</ul>
+<h3 id="3-SQL-Select语句完整的执行顺序"><a href="#3-SQL-Select语句完整的执行顺序" class="headerlink" title="3. SQL Select语句完整的执行顺序"></a>3. SQL Select语句完整的执行顺序</h3><p>1、from子句组装来自不同数据源的数据；</p>
+<p>2、where子句基于指定的条件对记录行进行筛选；</p>
+<p>3、group by子句将数据划分为多个分组；</p>
+<p>4、使用聚集函数进行计算；</p>
+<p>5、使用having子句筛选分组；</p>
+<p>6、计算所有的表达式；</p>
+<p>7、select 的字段；</p>
+<p>8、使用order by对结果集进行排序。<br>首）然后按Shift+↓（向下箭头）</p>
+<ul>
+<li>选中上一行或多行：按Home（定位到行首）然后按Shift+↑</li>
+</ul>
+<h3 id="4-执行选中的快捷命令"><a href="#4-执行选中的快捷命令" class="headerlink" title="4. 执行选中的快捷命令"></a>4. 执行选中的快捷命令</h3><ul>
+<li>crtl R</li>
+</ul>
+<h3 id="5-SQL-Select语句完整的执行顺序"><a href="#5-SQL-Select语句完整的执行顺序" class="headerlink" title="5. SQL Select语句完整的执行顺序"></a>5. SQL Select语句完整的执行顺序</h3><p>1、from子句组装来自不同数据源的数据；</p>
+<p>2、where子句基于指定的条件对记录行进行筛选；</p>
+<p>3、group by子句将数据划分为多个分组；</p>
+<p>4、使用聚集函数进行计算；</p>
+<p>5、使用having子句筛选分组；</p>
+<p>6、计算所有的表达式；</p>
+<p>7、select 的字段；</p>
+<p>8、使用order by对结果集进行排序。</p>
+<h3 id="6-oracle存储过程中is和as区别"><a href="#6-oracle存储过程中is和as区别" class="headerlink" title="6. oracle存储过程中is和as区别"></a>6. oracle存储过程中is和as区别</h3><ul>
+<li>在存储过程(PROCEDURE)和函数(FUNCTION)中没有区别；</li>
+<li>在视图(VIEW)中只能用AS不能用IS；</li>
+<li>在游标(CURSOR)中只能用IS不能用AS。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装java jdk配置环境出现的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.210Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://pickgog.github.io/2019/08/04/oracle/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/配置ubuntu服务器ss/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.204Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于git在windows的一些配置和学习/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.200Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2019/08/04/关于linux磁盘划分与挂载等问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/04/数据库中Oracle的学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/windows下用git连接服务器自动断开情况/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.187Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装node-npm的过程及遇到的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.179Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于如何完美在idea中导入别人的maven项目/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于报错Unable to read XML/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.156Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在sts中部署tomcat/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.144Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在maven新建javaweb项目中index.jsp出错/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.129Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/tomcat端口占用/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.126Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/08/page/2/">2</a><a class="page-number" href="/archives/2019/08/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/08/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -402,8 +506,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

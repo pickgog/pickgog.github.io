@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://pickgog.github.io">
-  <title>Archives: 2019/8 | fast</title>
+  <title>fast</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="关于oracle与mysql区别以及oracel创建数据库和用户创建数据库和用户步骤mysql创建数据库可以直接通过create database “数据库名”, 但是Oracle需要以下三个步骤  1.创建两个数据库文件 2.创建用户与上面创建的文件形成映射关系 3.给用户添加权限  一. 创建两个数据库文件(monitor.dbf)12345CREATE TABLESPACE monitor">
+<meta property="og:type" content="article">
 <meta property="og:title" content="fast">
-<meta property="og:url" content="https://pickgog.github.io/archives/2019/08/index.html">
+<meta property="og:url" content="https://pickgog.github.io/2019/08/04/关于oracle与mysql区别以及oracel创建数据库和用户/index.html">
 <meta property="og:site_name" content="fast">
+<meta property="og:description" content="关于oracle与mysql区别以及oracel创建数据库和用户创建数据库和用户步骤mysql创建数据库可以直接通过create database “数据库名”, 但是Oracle需要以下三个步骤  1.创建两个数据库文件 2.创建用户与上面创建的文件形成映射关系 3.给用户添加权限  一. 创建两个数据库文件(monitor.dbf)12345CREATE TABLESPACE monitor">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-04T04:31:45.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fast">
+<meta name="twitter:description" content="关于oracle与mysql区别以及oracel创建数据库和用户创建数据库和用户步骤mysql创建数据库可以直接通过create database “数据库名”, 但是Oracle需要以下三个步骤  1.创建两个数据库文件 2.创建用户与上面创建的文件形成映射关系 3.给用户添加权限  一. 创建两个数据库文件(monitor.dbf)12345CREATE TABLESPACE monitor">
   
     <link rel="alternative" href="/atom.xml" title="fast" type="application/atom+xml">
   
@@ -150,235 +154,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于oracle与mysql区别以及oracel创建数据库和用户" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于oracle与mysql区别以及oracel创建数据库和用户"><a href="#关于oracle与mysql区别以及oracel创建数据库和用户" class="headerlink" title="关于oracle与mysql区别以及oracel创建数据库和用户"></a>关于oracle与mysql区别以及oracel创建数据库和用户</h1><h2 id="创建数据库和用户步骤"><a href="#创建数据库和用户步骤" class="headerlink" title="创建数据库和用户步骤"></a>创建数据库和用户步骤</h2><p><em>mysql创建数据库可以直接通过create database “数据库名”, 但是Oracle需要以下三个步骤</em></p>
+<ul>
+<li>1.创建两个数据库文件</li>
+<li>2.创建用户与上面创建的文件形成映射关系</li>
+<li>3.给用户添加权限</li>
+</ul>
+<h3 id="一-创建两个数据库文件-monitor-dbf"><a href="#一-创建两个数据库文件-monitor-dbf" class="headerlink" title="一. 创建两个数据库文件(monitor.dbf)"></a>一. 创建两个数据库文件(monitor.dbf)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLESPACE monitor LOGGING DATAFILE &apos;E:\app\owner\oradata\orcl\monitor.dbf&apos; </span><br><span class="line">SIZE 100M AUTOEXTEND ON NEXT 32M MAXSIZE 500M EXTENT MANAGEMENT LOCAL;</span><br><span class="line"></span><br><span class="line">create temporary tablespace monitor_temp tempfile &apos;E:\app\owner\oradata\orcl\monitor_temp.dbf&apos;</span><br><span class="line">size 100m autoextend on next 32m maxsize 500m extent management local;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-创建用户与上面创建的文件形成映射关系"><a href="#二-创建用户与上面创建的文件形成映射关系" class="headerlink" title="二.创建用户与上面创建的文件形成映射关系"></a>二.创建用户与上面创建的文件形成映射关系</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER monitor IDENTIFIED BY monitor DEFAULT TABLESPACE monitor TEMPORARY TABLESPACE monitor_temp;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-添加权限"><a href="#三-添加权限" class="headerlink" title="三.添加权限"></a>三.添加权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grant connect,resource,dba to monitor;</span><br><span class="line">grant create session to monitor;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四-删除数据库"><a href="#四-删除数据库" class="headerlink" title="四.删除数据库"></a>四.删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLESPACE monitor INCLUDING CONTENTS AND DATAFILES;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五-删除用户"><a href="#五-删除用户" class="headerlink" title="五.删除用户"></a>五.删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user monitor cascade;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Oracle与mysql的区别"><a href="#Oracle与mysql的区别" class="headerlink" title="Oracle与mysql的区别"></a>Oracle与mysql的区别</h2><ul>
+<li>Oracle显示所有用户<code>select * from all_user;</code>当前账号登陆就是当前的数据库<br>mysql则用<code>show databases;</code>查看所有数据库,之后就可以使用<code>use &quot;数据库名&quot;</code>进入某个数据库,再使用<code>show tables</code>查看当前数据库的表</li>
+<li>Oracle:查询所有的表:<code>select * from tab;</code><br>mysql:<code>show tables;</code></li>
+<li>Oracle:改变连接用户:<code>conn 用户名/秘密@主机字符串</code><br>mysql: <code>use 库名</code></li>
+<li>Oracle:显示当前连接用户(库):<code>show user;</code><br>mysql:<code>connect</code></li>
+<li>Oracle:执行外部脚本:<code>@c:/文件名.sql</code><br>mysql:<code>source c:/文件名.sql</code></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装java jdk配置环境出现的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.210Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://pickgog.github.io/2019/08/04/关于oracle与mysql区别以及oracel创建数据库和用户/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/配置ubuntu服务器ss/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.204Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于git在windows的一些配置和学习/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.200Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2019/08/04/关于tomcat在cmd中启动时乱码问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/04/关于Oracle多次安装失败操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/windows下用git连接服务器自动断开情况/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.187Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/安装node-npm的过程及遇到的问题/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.179Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于如何完美在idea中导入别人的maven项目/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/关于报错Unable to read XML/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.156Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在sts中部署tomcat/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.144Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/在maven新建javaweb项目中index.jsp出错/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.129Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/tomcat端口占用/" class="archive-article-date">
-  	<time datetime="2019-08-04T04:34:39.126Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/08/page/2/">2</a><a class="page-number" href="/archives/2019/08/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/08/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -402,8 +342,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
